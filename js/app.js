@@ -35,7 +35,7 @@ const TopBtn = document.querySelector('button');
 
 function isView(section){
     const size = section.getBoundingClientRect();
-    return size.bottom >= 0 && size.top< 70;
+    return size.top >= 0 && size.top < window.innerHeight / 2;
     
 }
 // Show or hide the scroll to top button and scroll to top
@@ -71,8 +71,6 @@ function buildnavbar(){
     link.innerHTML = `${sec.dataset.nav}`
     // Add CSS to remove underline
     link.style.textDecoration = 'none';
-    // Add CSS to change color
-    link.style.color = 'black';
     
     })
 
@@ -126,10 +124,10 @@ window.addEventListener('scroll', () => {
     header.style.display = 'block';
 
     clearTimeout(isScroll);
-    //hide navbar after 3s
+    //hide navbar after 15s
     isScroll= setTimeout(() => {
         header.style.display = 'none';
-    }, 10000);
+    }, 15000);
 })
 window.addEventListener('scroll', makeActive);
 
